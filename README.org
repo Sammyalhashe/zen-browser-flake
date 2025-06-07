@@ -1,0 +1,5 @@
+#+title: Zen Browser Flake
+#+author: Sammyalhashe (credit to heywoodlh)
+
+Copy of https://github.com/heywoodlh/flakes/tree/main/zen-browser that updates
+some of the MacOs inputs.

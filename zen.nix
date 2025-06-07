@@ -14,9 +14,9 @@
 
 let
   myZenVersion = "1.12.10b";
-  x86_64-darwin-hash = "";
+  x86_64-darwin-hash = "1jmqgnhhnckxmfxc84fdq1rc4kph0r3wipsf2d4qg93hi0kpxhkm";
   aarch64-darwin-hash = "";
-  x86_64-linux-hash = "";
+  x86_64-linux-hash = "1wj8ramw4rvff5mdal3gdhgcpll664vw0lbh6gnng1k2468kyldk";
   sources = {
     x86_64-darwin = fetchurl {
       url = "https://github.com/zen-browser/desktop/releases/download/${myZenVersion}/zen.macos-universal.dmg";
@@ -27,7 +27,7 @@ let
       sha256 = aarch64-darwin-hash;
     };
     x86_64-linux = fetchurl {
-      url = "https://github.com/zen-browser/desktop/releases/download/${myZenVersion}/zen.linux-generic.tar.bz2";
+      url = "https://github.com/zen-browser/desktop/releases/download/${myZenVersion}/zen.linux-x86_64.tar.xz";
       sha256 = x86_64-linux-hash;
     };
   };
