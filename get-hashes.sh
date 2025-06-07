@@ -15,7 +15,7 @@ do
   echo "Updating hash for ${url}"
   myHash=$(nix-prefetch-url --type sha256 ${url})
   # Update x86_64 MacOS version
-  [[ "$file" == "zen.macos-universal.dmg" ]] && sed -Ei "s/x86_64-darwin-hash = \"(.*)\"/x86_64-darwin-hash = \"${myHash}\"/g" zen.nix
+  [[ "$file" == "zen.macos-universal.dmg" ]] && sed -Ei "s/aarch64-darwin-hash = \"(.*)\"/aarch64-darwin-hash = \"${myHash}\"/g" zen.nix && sed -Ei "s/x86_64-darwin-hash = \"(.*)\"/x86_64-darwin-hash = \"${myHash}\"/g" zen.nix
   # Update aarch64 MacOS version
   [[ "$file" == "zen.macos-aarch64.dmg" ]] && sed -Ei "s/aarch64-darwin-hash = \"(.*)\"/aarch64-darwin-hash = \"${myHash}\"/g" zen.nix
   # Update x86_64 Linux version
