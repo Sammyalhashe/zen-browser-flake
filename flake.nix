@@ -17,7 +17,8 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         zenBrowser = if pkgs.stdenv.isDarwin then pkgs.callPackage ./zen.nix {}
-        else zen-browser.packages.${system}.default;
+        # else zen-browser.packages.${system}.default;
+        else pkgs.callPackage ./zen.nix;
         zenWrapper = pkgs.writeShellScriptBin "zen" ''
           mkdir -p $HOME/Documents/zen/Profiles/main
           ${zenBrowser}/bin/zen --profile $HOME/Documents/zen/Profiles/main
