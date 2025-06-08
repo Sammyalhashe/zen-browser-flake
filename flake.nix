@@ -16,9 +16,12 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        zenBrowser = if pkgs.stdenv.isDarwin then pkgs.callPackage ./zen.nix {}
-        # else zen-browser.packages.${system}.default;
-        else pkgs.callPackage ./zen.nix;
+        zenBrowser =
+          if pkgs.stdenv.isDarwin then
+            pkgs.callPackage ./zen.nix { }
+          # else zen-browser.packages.${system}.default;
+          else
+            pkgs.callPackage ./zen.nix { };
         zenWrapper = pkgs.writeShellScriptBin "zen" ''
           mkdir -p $HOME/Documents/zen/Profiles/main
           ${zenBrowser}/bin/zen --profile $HOME/Documents/zen/Profiles/main
@@ -28,6 +31,7 @@
         packages = rec {
           zen-wrapper = zenWrapper;
           zen-browser = zenBrowser;
+          # default = if pkgs.stdenv.isDarwin then zen-wrapper else zen-browser;
           default = if pkgs.stdenv.isDarwin then zen-wrapper else zen-browser;
         };
 
