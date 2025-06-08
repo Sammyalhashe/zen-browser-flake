@@ -116,8 +116,8 @@ stdenv.mkDerivation (
               ''
                 undmg ${finalAttrs.src}
                 mkdir -p $out/bin
-                cp -r "Zen Browser.app" $out
-                makeWrapper "$out/Zen Browser.app/Contents/MacOS/zen" "$out/bin/zen"
+                cp -r "Zen.app" $out
+                makeWrapper "$out/Zen.app/Contents/MacOS/zen" "$out/bin/zen"
               ''
             else
               ''
